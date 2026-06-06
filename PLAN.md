@@ -35,12 +35,13 @@
 
 ## 🗺️ استپ‌های توسعه
 
-- [ ] استپ ۱ — راه‌اندازی محیط توسعه و اعتبارسنجی پایه
-  - نصب `wrangler` و وابستگی‌های Node در sandbox
-  - بررسی سینتکس `_worker.js` با `node --check`
-  - ساخت `package.json` و اسکریپت‌های dev/deploy
-  - تنظیم KV mock/binding محلی برای `wrangler dev`
-  - اجرای سرور محلی و تأیید پاسخ `/version` و `/login`
+- [x] استپ ۱ — راه‌اندازی محیط توسعه و اعتبارسنجی پایه  ✅ 2026-06-06
+  - [x] تأیید ابزار: node v20.20.2 / npm 10.8.2 / wrangler 4.86.0
+  - [x] بررسی سینتکس `_worker.js` با `node --check` → SYNTAX_OK
+  - [x] ساخت `package.json` (اسکریپت‌های check/dev/deploy، type=module)
+  - [x] ساخت `wrangler.dev.toml` با KV binding محلی (فایل تولید دست‌نخورده)
+  - [x] اجرای `wrangler dev --local` و تأیید `/version?uuid=...` → `{"Version":20260601154939}` HTTP 200
+  - یادداشت: `http:` به `https:` ریدایرکت می‌شود (رفتار درست worker، خط ۷۴)
 
 - [ ] استپ ۲ — مستندسازی نقشه کد و نقاط توسعه
   - استخراج جدول کامل مسیرها (routes) و توابع به `docs/ARCHITECTURE.md`

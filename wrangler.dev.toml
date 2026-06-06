@@ -1,0 +1,16 @@
+# فقط برای توسعه محلی (wrangler dev). فایل تولید همان wrangler.toml است.
+name = "edgetunnel-dev"
+main = "_worker.js"
+compatibility_date = "2025-11-04"
+compatibility_flags = ["nodejs_compat"]
+keep_vars = true
+
+[vars]
+ADMIN = "devpassword"
+DEBUG = "1"
+
+# KV محلی شبیه‌سازی‌شده (wrangler --local از حافظه/دیسک محلی استفاده می‌کند)
+[[kv_namespaces]]
+binding = "KV"
+id = "local_dev_kv"
+preview_id = "local_dev_kv"
