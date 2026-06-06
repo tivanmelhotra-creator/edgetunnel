@@ -131,6 +131,29 @@
 
 ---
 
+## 🧑‍💻 本地开发 (Local Development)
+
+本项目为单文件 Worker (`_worker.js`)，无需构建步骤。本地开发流程：
+
+```bash
+# 安装依赖 (wrangler)
+npm install
+
+# 语法检查
+npm run check          # node --check _worker.js
+
+# 本地运行 (使用 wrangler.dev.toml + 本地 KV 模拟)
+npm run dev            # wrangler dev --local --port 8787
+
+# 部署到生产 (使用 wrangler.toml)
+npm run deploy
+```
+
+> 说明：本地开发使用独立的 `wrangler.dev.toml`（含本地 `KV` 绑定与开发用 `ADMIN`），**不会影响**生产部署文件 `wrangler.toml`。
+> 访问 `http://127.0.0.1:8787/version?uuid=<userID>` 可做健康检查。
+
+---
+
 ## 🔧 高级实用技巧
 如需修改 **订阅地址里的TOKEN** 和 **用于节点验证的UUID** ，可通过修改变量
 1. 修改`ADMIN`或`KEY`变量的值，可以随机修改 **订阅地址里的TOKEN** 和 **用于节点验证的UUID**

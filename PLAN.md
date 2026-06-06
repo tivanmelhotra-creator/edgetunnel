@@ -73,12 +73,13 @@
   - [x] sanity `/version` روی dev → HTTP 200؛ ثبت در CHANGELOG + IMPROVEMENTS
   - مشاهده کم‌اولویت ثبت‌شده در IMPROVEMENTS (cancel/releaseLock در connectStreams) — بی‌خطر
 
-- [ ] استپ ۶ — پایداری CI/CD و انتشار
-  - بازبینی workflowهای GitHub (sync / auto-close PR)
-  - افزودن lint/check workflow (در صورت permission → ویرایش دستی)
-  - به‌روزرسانی README و wrangler.toml
-  - تگ نسخه و آماده‌سازی release notes
-  - تأیید نهایی استقرار
+- [x] استپ ۶ — پایداری CI/CD و انتشار  ✅ 2026-06-06
+  - [x] بازبینی workflowهای موجود (`sync.yml` فقط روی fork، `Auto-close-empty-PRs.yml`) → سالم
+  - [x] افزودن `.github/workflows/ci-check.yml` (node --check + اعتبارسنجی package.json)
+  - [x] به‌روزرسانی README با بخش «本地开发» (npm check/dev/deploy)
+  - [x] تأیید `wrangler.toml` تولید دست‌نخورده + اعتبارسنجی نهایی سینتکس
+  - [x] ثبت در CHANGELOG
+  - ⚠️ نیاز به ویرایش دستی (احتمالی) — docs/manual-edits/step6-2026-06-06.md (در صورت رد push فایل workflow)
 
 ---
 

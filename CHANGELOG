@@ -1,3 +1,10 @@
+## [2.1.dev-ci] - 2026-06-06
+
+### ADD
+
+- 新增 **CI 语法检查** workflow (`.github/workflows/ci-check.yml`)：在 push / PR 时对 `_worker.js` 执行 `node --check` 并校验 `package.json`，防止语法错误进入主分支。
+- 新增 **本地开发** 支持：`package.json`（check/dev/deploy 脚本）+ `wrangler.dev.toml`（本地 KV 绑定），README 增加本地开发章节。
+
 ## [2.1.dev-transport] - 2026-06-06
 
 ### Change
