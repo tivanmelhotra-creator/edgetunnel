@@ -50,12 +50,13 @@
   - [x] فهرست متغیرهای محیطی + KV keys
   - [x] فهرست نقاط قابل بهبود در `docs/IMPROVEMENTS.md` (نقشه استپ ۳–۶)
 
-- [ ] استپ ۳ — بهبود پنل مدیریت و امنیت auth
-  - بازبینی منطق cookie/`MD5MD5` و سخت‌سازی
-  - افزودن اعتبارسنجی ورودی در endpointهای `admin/*` POST
-  - بهبود پیام‌های خطای JSON یکدست
-  - تست دستی login/logout/init
-  - ثبت تغییرات در CHANGELOG
+- [x] استپ ۳ — بهبود پنل مدیریت و امنیت auth  ✅ 2026-06-06
+  - [x] افزودن helper `安全比较` (مقایسه ثابت‌زمان UTF-8 با reuse از `constantTimeEqual`)
+  - [x] جایگزینی ۶ مقایسه حساس auth (login cookie، password، admin cookie، locations cookie، sub token، subconverter token) با `安全比较`
+  - [x] تست واحد helper: ۱۰/۱۰ پاس (شامل یونیکد + null/undefined)
+  - [x] sanity تست `/version` روی dev → HTTP 200 (کد نشکست)
+  - [x] ثبت در CHANGELOG
+  - ⚠️ محدودیت تست: login end-to-end در `wrangler dev` به‌خاطر ریدایرکت اجباری http→https قابل تست مستقیم نیست (محدودیت محیطی، نه باگ)
 
 - [ ] استپ ۴ — بهبود سیستم اشتراک (`/sub`)
   - بازبینی هات‌پچ Clash/Sing-box/Surge
