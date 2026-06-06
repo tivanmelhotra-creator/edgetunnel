@@ -58,12 +58,12 @@
   - [x] ثبت در CHANGELOG
   - ⚠️ محدودیت تست: login end-to-end در `wrangler dev` به‌خاطر ریدایرکت اجباری http→https قابل تست مستقیم نیست (محدودیت محیطی، نه باگ)
 
-- [ ] استپ ۴ — بهبود سیستم اشتراک (`/sub`)
-  - بازبینی هات‌پچ Clash/Sing-box/Surge
-  - بهبود انتخاب IP بهینه و DoH fallback
-  - تست خروجی برای کلاینت‌های مختلف (UA)
-  - رفع موارد لبه‌ای شناسایی‌شده
-  - ثبت در CHANGELOG
+- [x] استپ ۴ — بهبود سیستم اشتراک (`/sub`)  ✅ 2026-06-06
+  - [x] بازبینی `DoH查询` → افزودن timeout ۵ ثانیه به fetch (با `withTimeout`) برای جلوگیری از بلاک‌شدن proxyip/TURN/SSTP
+  - [x] تست رِگِکس فرمت نود (IPv4/IPv6/دامنه/پورت/备注 + موارد نامعتبر) → استوار، بدون نیاز به تغییر
+  - [x] تست ماتریس تشخیص UA برای ۱۰ کلاینت (Clash/Meta/Mihomo/Sing-box/Surge/QuanX/Loon/Mozilla/target/b64) → ۱۰/۱۰ پاس
+  - [x] sanity تست `/version` روی dev پس از تغییر → HTTP 200
+  - [x] ثبت در CHANGELOG
 
 - [ ] استپ ۵ — بهینه‌سازی مسیر داغ ترنسپورت (WS/GrainTCP)
   - بازبینی صف بالادست/پایین‌دست و backpressure

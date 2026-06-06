@@ -1,3 +1,9 @@
+## [2.1.dev-sub] - 2026-06-06
+
+### Debug
+
+- 优化 **DoH查询** 健壮性：为 DoH `fetch` 增加 5 秒 `withTimeout` 超时保护，避免上游 DoH 服务无响应时阻塞 proxyip 解析、TURN、SSTP 等依赖 DNS 解析的链路。
+
 ## [2.1.dev-security] - 2026-06-06
 
 ### Debug

@@ -4808,14 +4808,14 @@ async function DoH查询(域名, 记录类型, DoH解析服务 = "https://cloudf
 
 		// 通过 POST 发送 dns-message 请求
 		log(`[DoH查询] 发送查询报文 ${域名} via ${DoH解析服务} (type=${qtype}, ${query.length}字节)`);
-		const response = await fetch(DoH解析服务, {
+		const response = await withTimeout(fetch(DoH解析服务, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/dns-message',
 				'Accept': 'application/dns-message',
 			},
 			body: query,
-		});
+		}), 5000, `DoH查询超时 ${域名} ${记录类型} via ${DoH解析服务}`);
 		if (!response.ok) {
 			console.warn(`[DoH查询] 请求失败 ${域名} ${记录类型} via ${DoH解析服务} 响应代码:${response.status}`);
 			return [];
