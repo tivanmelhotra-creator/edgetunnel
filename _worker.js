@@ -2357,7 +2357,7 @@ function 创建下行Grain发送器(webSocket, headerData = null) {
 		microtaskQueued = false;
 		if (!pendingBytes) return;
 		const output = pendingBuffer.subarray(0, pendingBytes).slice();
-		pendingBuffer = new Uint8Array(packetCap);
+		// pendingBuffer 已被 output.slice() 完整复制，可安全复用，省去每次 flush 的 32KB 分配
 		pendingBytes = 0;
 		waitRounds = 0;
 		flushPromise = 发送原始块(output).finally(() => { flushPromise = null });

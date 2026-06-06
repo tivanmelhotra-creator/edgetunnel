@@ -1,3 +1,9 @@
+## [2.1.dev-transport] - 2026-06-06
+
+### Change
+
+- 优化 **下行 GrainTCP 发送器** 内存分配：`flush()` 中 `pendingBuffer` 已被 `output.slice()` 完整复制，因此移除每次 flush 重新 `new Uint8Array(packetCap)` 的分配，改为复用同一缓冲区，减少高吞吐下行时每包 32KB 的重复分配与 GC 压力（数据完整性单测通过）。
+
 ## [2.1.dev-sub] - 2026-06-06
 
 ### Debug

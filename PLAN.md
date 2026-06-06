@@ -65,12 +65,13 @@
   - [x] sanity تست `/version` روی dev پس از تغییر → HTTP 200
   - [x] ثبت در CHANGELOG
 
-- [ ] استپ ۵ — بهینه‌سازی مسیر داغ ترنسپورت (WS/GrainTCP)
-  - بازبینی صف بالادست/پایین‌دست و backpressure
-  - تنظیم پارامترهای buffer/concurrency
-  - بررسی نشت حافظه و بستن سوکت‌ها
-  - تست عملکرد پایه
-  - ثبت در CHANGELOG
+- [x] استپ ۵ — بهینه‌سازی مسیر داغ ترنسپورت (WS/GrainTCP)  ✅ 2026-06-06
+  - [x] بازبینی صف بالادست (backpressure 16MB/4096 + compact + rejectQueued) → سالم، بدون تغییر
+  - [x] بازبینی بستن سوکت (`closeSocketQuietly` در مسیرهای خطا) → سالم
+  - [x] بهینه‌سازی نشت حافظه: حذف تخصیص 32KB غیرضروری در `flush()` سندر پایین‌دست (buffer reuse)
+  - [x] تست واحد یکپارچگی داده سندر (۱۶۱KB چندتکه، مرزی/بزرگ) → بایت‌به‌بایت صحیح
+  - [x] sanity `/version` روی dev → HTTP 200؛ ثبت در CHANGELOG + IMPROVEMENTS
+  - مشاهده کم‌اولویت ثبت‌شده در IMPROVEMENTS (cancel/releaseLock در connectStreams) — بی‌خطر
 
 - [ ] استپ ۶ — پایداری CI/CD و انتشار
   - بازبینی workflowهای GitHub (sync / auto-close PR)
