@@ -1,0 +1,36 @@
+name: CI Syntax Check
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_worker.js"
+      - "package.json"
+      - ".github/workflows/ci-check.yml"
+  pull_request:
+    paths:
+      - "_worker.js"
+      - "package.json"
+  workflow_dispatch:
+
+jobs:
+  syntax-check:
+    name: node --check _worker.js
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Syntax check worker
+        run: node --check _worker.js
+
+      - name: Validate package.json
+        run: node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json OK')"
